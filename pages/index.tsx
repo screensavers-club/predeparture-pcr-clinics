@@ -222,7 +222,7 @@ const Home: NextPage<PageProps> = ({ clinics, mapbox_token }) => {
                 setViewport(nextViewport);
               }}
             >
-              <NavigationControl style={{ bottom: 50, left: 10 }} />
+              <NavigationControl style={{ bottom: 50, left: 10, zIndex: 5 }} />
               {clinicMarkers.map((marker, i) => (
                 <Marker
                   key={`${marker.name}_${marker.address}_${i}`}
@@ -243,6 +243,14 @@ const Home: NextPage<PageProps> = ({ clinics, mapbox_token }) => {
                     borderColor="gray.900"
                     borderRadius="lg"
                     cursor="pointer"
+                    zIndex={
+                      marker.coordinates.lat ===
+                        focusedMarker?.coordinates.lat &&
+                      marker.coordinates.long ===
+                        focusedMarker?.coordinates.long
+                        ? 3
+                        : 1
+                    }
                     background={
                       marker.coordinates.lat ===
                         focusedMarker?.coordinates.lat &&
@@ -262,7 +270,7 @@ const Home: NextPage<PageProps> = ({ clinics, mapbox_token }) => {
                   offsetLeft={-17}
                   offsetTop={-35}
                 >
-                  <Location width="35" height="35" />
+                  <Location width="35" height="35" style={{ zIndex: 4 }} />
                 </Marker>
               )}
             </ReactMapGL>
