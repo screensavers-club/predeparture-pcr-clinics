@@ -53,15 +53,17 @@ const Home: NextPage<PageProps> = ({ clinics, mapbox_token }) => {
     { long: 0, lat: 0 }
   );
   const [viewport, setViewport] = useState<{
-    latitude?: number;
-    longitude?: number;
-    zoom?: number;
-    width?: number;
-    height?: number;
+    latitude: number;
+    longitude: number;
+    zoom: number;
+    width: number;
+    height: number;
   }>({
     latitude: initCenter.lat,
     longitude: initCenter.long,
     zoom: 13,
+    width: 10,
+    height: 10,
   });
 
   const [clinicMarkers, setClinicMarkers] = useState<Clinic[]>([]);
@@ -76,9 +78,9 @@ const Home: NextPage<PageProps> = ({ clinics, mapbox_token }) => {
   const resizeTimeoutRef = useRef<number>(0);
   const updateClinicsTimeoutRef = useRef<number>(0);
 
-  function showLocation(input) {
+  function showLocation(input: string) {
     if (!mapbox) {
-      mapbox = new MapboxClient(mapbox_token);
+      mapbox = new (MapboxClient as { new (token: string): any })(mapbox_token);
     }
 
     mapbox.geocodeForward(`${input} Singapore`, function (err: any, data: any) {
@@ -216,7 +218,7 @@ const Home: NextPage<PageProps> = ({ clinics, mapbox_token }) => {
             <ReactMapGL
               {...viewport}
               mapboxApiAccessToken={mapbox_token}
-              onViewportChange={(nextViewport) => {
+              onViewportChange={(nextViewport: any) => {
                 setViewport(nextViewport);
               }}
             >

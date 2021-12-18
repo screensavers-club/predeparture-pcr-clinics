@@ -12,6 +12,7 @@
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@fontsource/inter": "^4.5.1",
+    "@mapbox/mapbox-sdk": "^0.13.2",
     "framer-motion": "^4.1.17",
     "mapbox": "^1.0.0-beta10",
     "next": "12.0.7",
