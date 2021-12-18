@@ -28,6 +28,8 @@ interface Clinic {
   };
 }
 
+export type { Clinic };
+
 if (target.toLowerCase() === "sg") {
   const target = path.join(__dirname, "../dist/singapore/clinics.json");
 

@@ -8,11 +8,20 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@chakra-ui/react": "^1.7.3",
+    "@emotion/react": "^11.7.1",
+    "@emotion/styled": "^11.6.0",
+    "@fontsource/inter": "^4.5.1",
+    "framer-motion": "^4.1.17",
+    "mapbox": "^1.0.0-beta10",
     "next": "12.0.7",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-map-gl": "^6.1.18",
+    "styled-icons": "^10.45.0"
   },
   "devDependencies": {
+    "@types/mapbox": "^1.6.42",
     "@types/node": "17.0.0",
     "@types/react": "17.0.37",
     "eslint": "8.4.1",
