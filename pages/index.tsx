@@ -159,7 +159,19 @@ const Home: NextPage<PageProps> = ({ clinics, mapbox_token }) => {
   return (
     <>
       <Head>
-        <title>Pre-departure PCR Test Locator</title>
+        <title>Pre-Departure PCR Test Locator</title>
+        <meta property="og:title" content="Pre-Departure PCR Test Locator" />
+        <meta property="og:site_name" content="Good Work" />
+        <meta property="og:url" content="https://pcr-sg.vercel.app/" />
+        <meta
+          property="og:description"
+          content="Locate your nearest Singapore pre-departure PCR test clinic based on an easy location search. "
+        />
+        <meta property="og:type" content="website" />
+        <meta
+          property="og:image"
+          content="https://pcr-sg.vercel.app/og.png"
+        ></meta>
       </Head>
       <Modal onClose={onClose} isOpen={isOpen}>
         <ModalOverlay />
